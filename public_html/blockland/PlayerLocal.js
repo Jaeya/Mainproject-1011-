@@ -21,6 +21,7 @@ class PlayerLocal extends Player {// 로컬플레이어에만 적용되는 소�
 				if (index != -1) {
 					game.remotePlayers.splice(index, 1);//원격플레이어 배열에서 특정항목에 연결
 					game.scene.remove(players[0].object);//게임장면에서 해당플레이어 개체 제거
+					game.scene.remove(players[0].nickname);
 				}
 			} else {//찾지 못했다면
 				index = game.initialisingPlayers.indexOf(data.id);//초기화 플레이어에 여전히 있을수 있음

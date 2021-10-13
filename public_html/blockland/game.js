@@ -1,10 +1,13 @@
 
 class Game  {
 	
-	constructor() {
+	constructor(nick) {
 		if (!Detector.webgl) Detector.addGetWebGLMessage();
-
-
+		//////////////////////////////////////////////	
+		// Game 클래스 객체화 할 때 nick을 넘겨 받아서 userNick 속성에 저장함
+		this.userNick = nick;
+		//////////////////////////////////////////////	
+		
 		
 
 		this.modes = Object.freeze({
@@ -16,6 +19,8 @@ class Game  {
 			GAMEOVER: Symbol("gameover")
 		});
 		this.mode = this.modes.NONE;
+
+	
 
 		this.container;
 		this.player;

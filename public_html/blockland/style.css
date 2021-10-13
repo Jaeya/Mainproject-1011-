@@ -220,7 +220,7 @@ hover설정(마우스가 위에 올라갔을 때) */
 /* -------------사이드 바 안에 채팅창------------- */
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-:root {
+/* :root {
 	--dark-color-a: #330748;
 	--dark-color-b: #330748;
 	--light-color: #e6e9ff;
@@ -240,16 +240,16 @@ a {
 	cursor: pointer;
     width: 50px;
     height: 45px;
-	/* padding: 5px 15px; */
+	 padding: 5px 15px; 
 	background: var(--light-color);
 	color: var(--dark-color-a);
 	border: 0;
 	font-size: 12px;
-}
+} */
 
 /* Chat Page */
 
-.chat-container {
+/* .chat-container {
     position: absolute;
     display: none;
     right: 0px;
@@ -349,7 +349,7 @@ a {
     font-size: 16px;
 	padding: 5px;
 	flex: 1;
-}
+} */
 
 /* Join Page */
 .join-container {

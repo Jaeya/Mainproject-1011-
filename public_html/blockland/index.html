@@ -208,7 +208,7 @@
 		</ul>
 	</div>
 	<!-- 사이드바 안에 채팅창 -->
-	<div class="chat-container">
+	<!-- <div class="chat-container">
 		<header class="chat-header">
 			<h1><i class="fas fa-smile"></i> BIT Occasion </h1>
 			<a href="index.html" class="btn">Leave Room</a>
@@ -228,7 +228,7 @@
 				<button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
 			</form>
 		</div>
-	</div>
+	</div> -->
 	<!-- 사이드바 이벤트 -->
 	<div class="toggle" onclick="toggleMenu()"></div>
 	<script type="text/javascript">
@@ -262,8 +262,10 @@
 			*/
 			users = new Users(UserNick);
 
-			game = new Game(), player = new Player(),
-				playerlocal = new Playerlocal(), speechbubble = new SpeechBubble()
+			game = new Game(UserNick)
+
+			
+			
 			// document.addEventListener("DOMContentLoaded", function(){ game = new Game(UserModel); });
 		});
 	</script>
