@@ -11,32 +11,25 @@
        
 
         socket.on('setId', function (data) {
-            //userid = data.id;
             console.log('들고와진다' + data.id);
 
-           socket.emit('nickdata', {nick: usernick, id: data.id});
+            socket.emit('nickdata', {nick: usernick, id: data.id});
 		});
 
         socket.on('nicksave', (data)=>{
              userList.innerHTML = `
              ${data.map(data => `<br>${data.nick}`).join(',')}`
               users = data;
-            // users.push(user)
-            
+           
            
         })
 
-        socket.on('deleteData', (delid) => {
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].id == delid.id) {
-                    console.log("탈퇴유저:", users[i].id);
-                    return users.splice(i, 1);
-                }
-            }
-            userList.innerHTML = `
-            ${users.map(users => `<br>${users.nick}`).join(',')}`
+        socket.on('deleteData', (data) => {
             
-            socket.emit('updateData', users)
+            userList.innerHTML = `
+            ${data.map(data => `<br>${data.nick}`).join(',')}`
+            
+            
             
         })
         

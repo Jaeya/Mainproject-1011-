@@ -24,12 +24,13 @@ io.sockets.on('connection', function(socket){
 
 	
 	socket.userData = { x:0, y:0, z:0, heading:0 };										
- 
+	
+	
+
 	console.log(`${socket.id} connected`);
 	socket.emit('setId', { id:socket.id });//이벤트발생 함수 // 서버쪽에서 이벤트 발생시 클라이언트 페이지의 해당 이벤트 리스너 처리
-	
 	console.log(" First ",nickList)
-	//console.log("출력" + users.userJoin(socket.id, usernick))
+	
 
 	socket.on('nickdata', (data) =>{
 		console.log("User Data",   data.nick ,   data.id);
@@ -39,26 +40,23 @@ io.sockets.on('connection', function(socket){
 
 		io.emit('nicksave', nickList)
 	
-	// nicklist 초기화  
-
-	socket.on('updateData', (data)=>{
-		nickList = data;
-		console.log("현재 인원",nickList)
-		//return nickList;
-	})
-	
-		// const user = this.users.userJoin(socket.id, usernick );
-		// console.log("실험" , data.usernick);
-		// socket.join(user)
-
 	})
 
-
-	
 	
     socket.on('disconnect', function(){
+		
+		for(let i = 0; i< nickList.length; i++){
+			if(nickList[i].id == socket.id){
+			nickList.splice(i,1);
+		console.log("????", nickList)
+	}
+		
+	}
 		socket.broadcast.emit('deletePlayer', { id: socket.id });//나를 제외한 전체에게 실시간 전송 // 특정 소켓 삭제
-		io.emit('deleteData',{id: socket.id});
+		socket.broadcast.emit('deleteData', nickList);
+		
+		console.log(`${socket.id} disconnected`);
+		
     });	
 	
 	socket.on('init', function(data){
